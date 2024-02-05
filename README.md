@@ -1,79 +1,91 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Spinning Up React Native App
 
-# Getting Started
+## System Requirements
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+1. Current version of Android Studio installed is **Android Studio Hedgehog | 2023.1.1**.
+2. System requirements for this version of Android Studio are
+    * 64-bit Microsoft® Windows® 8/10/11
+    * x86_64 CPU architecture; 2nd generation Intel Core or newer, or* AMD CPU with support for a Windows Hypervisor
+    * 8 GB RAM or more
+    * 8 GB of available disk space minimum (IDE + Android SDK + Android Emulator)
+    * 1280 x 800 minimum screen resolution
 
-## Step 1: Start the Metro Server
+3. System Specifications of PC it is being installed on
+    * Windows Version: Windows 11 Pro 22H2
+    * Processor: AMD Ryzen 7 PRO 6850U with Radeon Graphics        2.70 GHz
+    * Installed RAM: 32.0 GB (30.8 GB usable)
+    * Display Resolution: 2560 X 1600
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Installation Instructions
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Necessary tools to download and run android studio are :
 
-```bash
-# using npm
-npm start
+1. Node
+2. JDK
+3. React Native
 
-# OR using Yarn
-yarn start
-```
+### Node
 
-## Step 2: Start your Application
+The installer of Node can be downloaded from [Node's Official Website](https://nodejs.org/en/download). Download the LTS version. Alternatively, you can use package manager to do the same. Use winget, if you are using Windows operating system. The command do that is ```winget install OpenJS.NodeJS.LTS```  
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+```npm``` package manager will also be installed with Node.
 
-### For Android
+### JDK
 
-```bash
-# using npm
-npm run android
+There are many different versions of JDK from different vendors like Microsoft, Oracle, etc. The version installed for this setup is from [Adopt](https://adoptium.net/).
 
-# OR using Yarn
-yarn android
-```
+### React Native
 
-### For iOS
+The installation for React Native is pretty straightforward. Use ```npm``` to install it using ```npm install -g react-native-cli```.
 
-```bash
-# using npm
-npm run ios
+### Android Studio
 
-# OR using Yarn
-yarn ios
-```
+The installation for the Android Setup as simple as following setup wizard.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Configuration Steps
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+1. Once, Android Studio is installed, go to settings tab and under SDK Manager go to SDK Platform section and select the latest SDK and apply the settings. Android Studio will automatically download and install it.
+2. After it is installed, go to SDK tools section and make sure that android SDK platform tools is selected.
+3. The React Native tools require some environment variables to be set up in order to build apps with native code.
+    1. Open the Windows Control Panel.
+    2. Click on User Accounts, then click User Accounts again
+    3. Click on Change my environment variables
+    4. Click on New... to create a new ANDROID_HOME user variable that points to the path to your Android SDK:
+4. Add platform-tools to Path
+    1. Open the Windows Control Panel.
+    2. Click on User Accounts, then click User Accounts again
+    3. Click on Change my environment variables
+    4. Select the Path variable.
+    5. Click Edit.
+    6. Click New and add the path to platform-tools to the list.
 
-## Step 3: Modifying your App
+## Project Creation
 
-Now that you have successfully run the app, let's modify it.
+1. To create the react native project, use the ```npx``` executable in the directory you want to initialize the project. The command to do so us ```npx react-native init AppName```. By default the project will be TypeScript based to change that suffix the mentioned command with ```--version 0.70.0```.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Running the Project
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+1. To run the project you need to add the virtual device first which can be added using the device manager(on side bar).
+2. Mention the specifications of device you want and wait for it to get added.
+3. To run the device, go the Running Devices section and add the device you just created and it should start to boot.
+4. Once it is booted, run ```npx react-native doctor``` to make sure that all the dependencies are installed and recognized.
+5. Then enter ```npm start``` to start the app.
 
-## Congratulations! :tada:
+## Troubleshooting
 
-You've successfully run and modified your React Native App. :partying_face:
+Common errors when setting up the development environment or running the project include  
 
-### Now what?
+1. Android SDK not found  
+    To solve it:  
+    Go to your project then go to the android directory and create a file with the following name – local.properties
+    Open the file and paste your Android SDK path like below:  
+    ```dir=C:\\users\\{username}\AppData\\Local\\Android\\sdk```  
+    After that change your directory to android and run ```gradlew clean```.
+2. Java home path
+    Make sure your Java home path is set to the correct location.
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+## Resources
 
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. <https://www.linkedin.com/pulse/which-java-jdk-should-you-use-incus-data-pty-ltd>
+2. <https://reactnative.dev/docs/environment-setup>
+3. <https://www.geeksforgeeks.org/how-to-fix-sdk-location-not-found-in-android-studio/>
